@@ -97,11 +97,8 @@ public class MyString {
     public static String randomStringOfLetters(int n) {
         String str1 ="";
         for(int i=0; i < n; i++){
-            if(i == n-1){
                 str1 = str1 + (char) (Math.random()* (122 - 97) + 97);
-            }else{
-            str1 = str1 + (char) (Math.random()* (122 - 97) + 97) + ", ";
-            }
+
         }
         return str1;
     }
