@@ -98,7 +98,6 @@ public class Scrabble {
 	public static void playHand(String hand) {
 		int n = hand.length();
 		int score = 0;
-		boolean canPlay = true;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
 		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
 		In in = new In();
@@ -110,7 +109,7 @@ public class Scrabble {
 			// end-of-line characters.
 			String input = in.readString();
 			if (input.equals(".")) {
-				break;
+				System.out.println("End of hand. Total score: " + score + " points.");
 			}
 			if (MyString.subsetOf(input, hand) && isWordInDictionary(input)) {
 				int wordScore = wordScore(input);
@@ -120,17 +119,7 @@ public class Scrabble {
 		    }else{
 				System.out.println("Invalid word. Please try again.");
 			}
-			canPlay = false;
-        for (String word : DICTIONARY) {
-            if (word != null && MyString.subsetOf(word, hand)) {
-                canPlay = true;
-                break;
-            }
-        }
-		if (!canPlay) {
-            System.out.println("No valid words left. Ending hand.");
-        }
-
+			
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
