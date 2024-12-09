@@ -112,17 +112,21 @@ public class Scrabble {
 				break;
 			}
 		
-			if (MyString.subsetOf(input, hand) && isWordInDictionary(input)) {
+			if (!MyString.subsetOf(input, hand)) {
+				System.out.println("Invalid word. The letters are not in your hand. Please try again.");
+			} else if (!isWordInDictionary(input)) { 
+				System.out.println("Invalid word. The word is not in the dictionary. Please try again.");
+			} else { 
 				int wordScore = wordScore(input);
 				score += wordScore;
-				hand = MyString.remove(hand, input);
-				System.out.println(input + " earned " + wordScore + " points. Score: " + score + " points\n");
+				hand = MyString.remove(hand, input); 
+				System.out.println(input + " earned " + wordScore + " points. Score: " + score + " points");
+	
+				
+				System.out.println("End of hand. Total score: " + score + " points");
 				break;
-			} else {
-				System.out.println("Invalid word. Please try again.");
 			}
-		}	
-	        System.out.println("End of hand. Total score: " + score + " points");	
+		}
 	}
 
 
@@ -157,7 +161,7 @@ public class Scrabble {
 		////testBuildingTheDictionary();  
 		////testScrabbleScore();    
 		////testCreateHands();  
-		testPlayHands();
+		///testPlayHands();
 		////playGame();
 	}
 
@@ -186,6 +190,6 @@ public class Scrabble {
 		init();
 		//playHand("ocostrza");
 		//playHand("arbffip");
-		playHand("aretiin");
+		//playHand("aretiin");
 	}
 }
