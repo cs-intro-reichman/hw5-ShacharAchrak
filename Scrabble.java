@@ -112,17 +112,23 @@ public class Scrabble {
 				break;
 			}
 		
-			else if (MyString.subsetOf(input, hand) && isWordInDictionary(input)) {
+			if (MyString.subsetOf(input, hand) && isWordInDictionary(input)) {
 				int wordScore = wordScore(input);
 				score += wordScore;
-				hand = MyString.remove(hand, input);
-				System.out.println(input + " earned " + wordScore + " points. Score: " + score + " points\n");
+				hand = MyString.remove(hand, input); 
+				System.out.print(input + " earned " + wordScore + " points. Score: " + score + " points\n\n");
 				break;
+
 			} else {
-				System.out.println("Invalid word. Please try again.");
+				System.out.print("Invalid word. Please try again.\n");
 			}
-		}	
-	        System.out.println("End of hand. Total score: " + score + " points");	
+		}
+		if(hand.length()== 0){
+			System.out.println("Ran out of letters. Total score: " + score + " points\n");
+		}else{
+			System.out.print("End of hand. Total score: " + score + " points\n");
+		}
+		
 	}
 
 
