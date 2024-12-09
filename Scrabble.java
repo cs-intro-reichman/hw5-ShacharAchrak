@@ -117,7 +117,7 @@ public class Scrabble {
 				score += wordScore;
 				hand = MyString.remove(hand, input);
 				System.out.println(input + " earned " + wordScore + " points. Score: " + score + " points\n");
-				
+				break;
 			} else {
 				System.out.println("Invalid word. Please try again.");
 			}
@@ -157,7 +157,7 @@ public class Scrabble {
 		////testBuildingTheDictionary();  
 		////testScrabbleScore();    
 		////testCreateHands();  
-		////testPlayHands();
+		testPlayHands();
 		////playGame();
 	}
 
@@ -186,6 +186,6 @@ public class Scrabble {
 		init();
 		//playHand("ocostrza");
 		//playHand("arbffip");
-		//playHand("aretiin");
+		playHand("aretiin");
 	}
 }
