@@ -110,6 +110,7 @@ public class Scrabble {
 			String input = in.readString();
 			if (input.equals(".")) {
 				System.out.println("End of hand. Total score: " + score + " points.");
+				return;
 			}
 			if (MyString.subsetOf(input, hand) && isWordInDictionary(input)) {
 				int wordScore = wordScore(input);
