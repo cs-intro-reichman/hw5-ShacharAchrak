@@ -117,7 +117,7 @@ public class Scrabble {
 			if (MyString.subsetOf(input, hand) && !isWordInDictionary(input)) {
 				System.out.println("No such word in the dictionary. Try again.");
 			}else if (!MyString.subsetOf(input, hand)){
-				System.out.println("Invalid word. Please try again.");
+				System.out.println("Invalid word. Try again.");
 			}
 				else{
 					int wordScore = wordScore(input);
@@ -127,7 +127,7 @@ public class Scrabble {
 				}
 			}
 
-		if(hand.length()== 0){
+		if(hand.length() == 0){
 			System.out.print("Ran out of letters. Total score: " + score + " points\n");
 		}else{
 			System.out.print("End of hand. Total score: " + score + " points\n");
