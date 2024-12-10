@@ -90,16 +90,6 @@ public class Scrabble {
 		 s = MyString.insertRandomly('e', s);
 		 return s;
 	}
-	
-	public static boolean formValidWord(String hand) {
-		for (int i = 0; i < NUM_OF_WORDS; i++) {
-			String word = DICTIONARY[i];
-			if (MyString.subsetOf(word, hand)) {
-				return true; 
-			}
-		}
-		return false; 
-	}
 
     // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
     // 1. The letters in the word are removed from the hand, which becomes smaller.
@@ -118,24 +108,26 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
+
 			if (input.equals(".")) {
 				break;
 			}
 		
-			if (MyString.subsetOf(input, hand) && isWordInDictionary(input)) {
-				int wordScore = wordScore(input);
-				System.out.print(input + " earned " + wordScore + " points. Score: ");
-				score += wordScore;
-				System.out.print(score + " points\n");
-				hand = MyString.remove(hand, input);
-
-				if (!formValidWord(hand)) {
-					break; 
-				}
+			if (MyString.subsetOf(input, hand)){
+				if(isWordInDictionary(input)) {
+					int wordScore = wordScore(input);
+					System.out.print(input + " earned " + wordScore + " points. Score: ");
+					score += wordScore;
+					System.out.print(score + " points\n");
+					hand = MyString.remove(hand, input);
 			} else {
+				System.out.print("You cant use this word. Please try again.\n");
+			}
+		 } else {
 				System.out.print("Invalid word. Please try again.\n");
 			}
 		}
+
 		if(hand.length()== 0){
 			System.out.print("Ran out of letters. Total score: " + score + " points\n");
 		}else{
@@ -143,7 +135,6 @@ public class Scrabble {
 		}
 		
 	}
-
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
 	// to end the game. If the user enters any other input, writes an error message.
