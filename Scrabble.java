@@ -136,7 +136,7 @@ public class Scrabble {
 				}
 			} else {
 				
-				System.out.print("Invalid word. Try again.\n");
+				System.out.print("Invalid word. Please try again.\n");
 			}
 		}
 
