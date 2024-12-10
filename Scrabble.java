@@ -132,6 +132,7 @@ public class Scrabble {
 				hand = MyString.remove(hand, input); 
 
 				if (!formValidWord(hand)) {
+					System.out.print("No valid words can be formed with the remaining letters.\n");
 					break; 
 				}
 			} else {
